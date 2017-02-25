@@ -1,5 +1,5 @@
 .idea
-*.txt
+token.txt
 *.json
 *.pyc
 __pycache__
