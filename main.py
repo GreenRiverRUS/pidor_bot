@@ -199,7 +199,11 @@ class Bot:
         if len(players) > 0:
             for i in range(0, len(players), 10):
                 players = [self.get_username(chat, player_id) for player_id in players[i:i+10]]
-                self.send_answer(bot, chat.id, text=' '.join(players))
+                text = ' '.join(players)
+                if i == 0:
+                    header = common_phrases['list_players_header']
+                    text = '{}\n{}'.format(header, text)
+                self.send_answer(bot, chat.id, text=text)
         else:
             self.send_answer(bot, chat.id, template='no_players')
 
